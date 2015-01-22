@@ -98,6 +98,10 @@ namespace Assets.Scripts
 
             if (hit.collider.gameObject != _grapple && hit.collider.gameObject != _previousGrapple)
             {
+                if (hit.collider.gameObject.name == "CutCube")
+                {
+                    RetractRope();
+                }
                 // if you lose line of sight on the grappling hook, then add a new point to wrap around
 
                 _points.Add(CreateGrapplePoint(hit));
