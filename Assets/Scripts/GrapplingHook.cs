@@ -61,7 +61,7 @@ namespace Assets.Scripts
 
                 var hit = Physics2D.Linecast(transform.position, grapplePoint);
                 var distance = Vector3.Distance(transform.position, hit.point);
-                if (hit.collider != null && distance < Length)
+                if (hit.collider != null && distance < Length && hit.collider.gameObject.layer == 8)
                 {
                     _line.SetVertexCount(2);
                     _line.SetPosition(0, hit.point);

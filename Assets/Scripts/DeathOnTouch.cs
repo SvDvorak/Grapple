@@ -20,7 +20,7 @@ public class DeathOnTouch : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
-            Destroy(coll.gameObject);
+           
             AnnounceDeathText.text = "You died :(";
             Time.timeScale = 0;
         }

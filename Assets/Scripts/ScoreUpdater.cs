@@ -14,6 +14,11 @@ public class ScoreUpdater : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Application.LoadLevel(Application.loadedLevel);
+            Time.timeScale = 1;
+        }
         ScoreText.text = "Score: " + PlayerTransform.position.x.ToString("####");
     }
 }
