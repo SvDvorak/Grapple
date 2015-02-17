@@ -961,7 +961,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe5c610973113bf4d9169d87629a2149, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -28.8199997
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe5c610973113bf4d9169d87629a2149, type: 2}
       propertyPath: m_LocalPosition.z
@@ -29965,6 +29965,7 @@ GameObject:
   - 114: {fileID: 799313475}
   - 114: {fileID: 799313474}
   - 114: {fileID: 799313480}
+  - 114: {fileID: 799313481}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -30064,7 +30065,7 @@ Transform:
   m_PrefabInternal: {fileID: 27051155}
   m_GameObject: {fileID: 799313473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.8999996, y: -28.8199997, z: 0}
+  m_LocalPosition: {x: -31.8999996, y: -70, z: 0}
   m_LocalScale: {x: .62328738, y: .623287916, z: .348810136}
   m_Children: []
   m_Father: {fileID: 0}
@@ -30084,6 +30085,21 @@ MonoBehaviour:
   CurrentVelocity: {x: 0, y: 0}
   Debugtext: {fileID: 2124900779}
   rigidbody: {fileID: 799313477}
+--- !u!114 &799313481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799313473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c8b4800e4dc7a4fafae0323e1ee48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 799313479}
+  bulletSpeed: 10
+  nrOfBullets: 5
+  spread: .100000001
 --- !u!1001 &802273487
 Prefab:
   m_ObjectHideFlags: 0
@@ -77926,7 +77942,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -316, y: -1}
-  m_SizeDelta: {x: 500, y: 30}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &2127130466
 GameObject:

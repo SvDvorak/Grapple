@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
-    public Transform playerposition;
-    public float bulletSpeed = 10;
-    public float nrOfBullets = 5;
-    public float spread = (float)0.1;
+    public Transform player;
+   
+    public float bulletSpeed = 10f;
+    public float nrOfBullets = 5f;
+    public float spread = 0.1f;
     // Use this for initialization
     void Start()
     {
@@ -33,17 +34,19 @@ public class Gun : MonoBehaviour
         for (int i = 0; i <= nrOfBullets; i++)
         {
             bullet = new GameObject("Bullet");
-            bullet.transform.position = playerposition.position;
+            bullet.transform.position = player.position;
             bullet.AddComponent<Rigidbody2D>();
             bullet.AddComponent<SpriteRenderer>();
             SpriteRenderer sprite = bullet.GetComponent<SpriteRenderer>();
-            sprite.sprite = Resources.Load<UnityEngine.Sprite>("Sprites/Enviroment/ground0");
+            sprite.sprite = Resources.Load<Sprite>("Sprites/Enviroment/ground0");
             bullet.rigidbody2D.angularVelocity = 400;
             bullet.rigidbody2D.isKinematic = true;
-            Vector3 aim = (worldPosition - playerposition.position).normalized;
-          
-            aim.y = (float)(aim.y * (i * spread));
-            bullet.rigidbody2D.velocity = aim * bulletSpeed;
+            Vector3 aim = (worldPosition - player.position).normalized;
+            var spreadDirection = Vector3.Cross(aim, new Vector3(0, 0, 1));
+            var playerVelocity = player.transform.rigidbody2D.velocity;
+            var bulletIndex = i - (nrOfBullets/2);
+            bullet.rigidbody2D.velocity = (aim + spreadDirection*spread*bulletIndex)*bulletSpeed;
+            bullet.rigidbody2D.velocity = bullet.rigidbody2D.velocity + playerVelocity;
 
 
         }
