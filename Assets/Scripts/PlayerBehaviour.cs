@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public Vector2 CurrentVelocity;
 
-    public Text text;
+    public Text Debugtext;
     public Rigidbody2D rigidbody;
 	// Use this for initialization
 	void Start () {
@@ -15,15 +16,18 @@ public class PlayerBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    text.text = rigidbody.velocity.ToString();
+	    Debugtext.text ="X: "+rigidbody.velocity.x+" \n Y: "+rigidbody.velocity.y;
+	    CurrentVelocity = rigidbody.velocity;
 	}
 
     // OnCollisionEnter2D is called when this collider2D/rigidbody2D has begun touching another rigidbody2D/collider2D (2D physics only). (Since v4.3)
     public void OnCollisionEnter2D(Collision2D coll)
     {
-        if (rigidbody.velocity.y > 35)
+        if (CurrentVelocity.y <= -25f)
         {
             Time.timeScale = 0;
+            Debugtext.text = "You died!";
+           
         }
     }
 
